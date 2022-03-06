@@ -1,6 +1,5 @@
 <template>
   <PageHeader />
-  <img alt="Vue logo" src="./assets/logo.png" />
 
   <PageBody />
   <PageFooter />
@@ -28,6 +27,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
