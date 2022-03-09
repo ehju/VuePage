@@ -1,13 +1,21 @@
 <template>
   <footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
-      <button class="text-muted">Clear Everything</button>
+    <div class="container clearAllContainter">
+      <span class="text-muted clearAllBtn" @click="clearTodo"
+        >Clear Everything</span
+      >
     </div>
   </footer>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    clearTodo() {
+      localStorage.clear();
+    },
+  },
+};
 </script>
 
 <style>
