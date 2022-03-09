@@ -32,19 +32,23 @@ export default {
 ul {
   list-style-type: none;
   text-align: left;
+  padding-left: 1rem;
+  margin-top: 0px;
 }
 li {
   display: flex;
   min-height: 50px;
   height: 50px;
-  line-height: 50ps;
-  margin: 0.5 0;
-  padding: 0 0.9;
+  line-height: 50px;
+  margin: 0.2em 0;
+  padding: 0 1em;
 }
 .checkBtn {
+  line-height: 50px;
   margin-right: auto;
 }
 .removeBtn {
   margin-left: auto;
+  margin-right: 15px;
 }
 </style>

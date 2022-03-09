@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"></a>
+      <h1><a class="navbar-brand" href="#">TODO List! </a></h1>
       <button
         class="navbar-toggler"
         type="button"
@@ -38,4 +38,7 @@ export default {};
 </script>
 
 <style>
+h1 {
+  font-weight: 900;
+}
 </style>
