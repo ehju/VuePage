@@ -1,9 +1,18 @@
 <template>
-  <div>Body</div>
+  <div>Todo!</div>
+  <TodoInput />
+  <TodoList />
 </template>
 
 <script>
-export default {};
+import TodoInput from "./TodoInput.vue";
+import TodoList from "./TodoList.vue";
+export default {
+  components: {
+    TodoInput: TodoInput,
+    TodoList: TodoList,
+  },
+};
 </script>
 
 <style>
