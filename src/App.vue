@@ -1,21 +1,28 @@
 <template>
   <PageHeader />
-
-  <PageBody />
+  <TodoInput />
+  <TodoList />
   <PageFooter />
 </template>
 
 <script>
 import PageHeader from "./components/PageHeader.vue";
 import PageFooter from "./components/PageFooter.vue";
-import PageBody from "./components/PageBody.vue";
+import TodoInput from "./components/TodoInput.vue";
+import TodoList from "./components/TodoList.vue";
 
 export default {
   name: "App",
   components: {
-    PageHeader,
-    PageFooter,
-    PageBody,
+    PageHeader: PageHeader,
+    PageFooter: PageFooter,
+    TodoInput: TodoInput,
+    TodoList: TodoList,
+  },
+  data() {
+    return {
+      todoItems: [],
+    };
   },
 };
 </script>
