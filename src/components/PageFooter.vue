@@ -1,7 +1,7 @@
 <template>
   <footer class="footer mt-auto py-3 bg-light">
     <div class="container clearAllContainter">
-      <span class="text-muted clearAllBtn" @click="clearTodo"
+      <span class="text-muted clearAllBtn" @click="clearAllTodo"
         >Clear Everything</span
       >
     </div>
@@ -11,8 +11,8 @@
 <script>
 export default {
   methods: {
-    clearTodo() {
-      localStorage.clear();
+    clearAllTodo() {
+      this.$emit("clearAllTodo");
     },
   },
 };

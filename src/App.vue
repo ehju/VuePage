@@ -1,8 +1,8 @@
 <template>
   <PageHeader />
   <TodoInput v-on:addTodo="addTodo" />
-  <TodoList v-bind:propsdata="todoItems" />
-  <PageFooter />
+  <TodoList v-bind:propsdata="todoItems" @removeTodo="removeTodo" />
+  <PageFooter v-on:clearAllTodo="removeAll" />
 </template>
 
 <script>
@@ -24,7 +24,15 @@ export default {
     addTodo(todoItem) {
       localStorage.setItem(todoItem, todoItem);
       this.todoItems.push(todoItem);
-      console.log(this.todoItems);
+    },
+    removeTodo(todoItem, index) {
+      localStorage.removeItem(todoItem);
+      this.todoItems.splice(index, 1);
+      console.log("hi");
+    },
+    removeAll() {
+      localStorage.clear();
+      this.todoItems = [];
     },
   },
   created() {
