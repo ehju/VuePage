@@ -9,14 +9,23 @@
     <span class="addContainer" v-on:click="addTodo"
       ><i class="addBtn fa fa-plus" aria-hidden="true"></i
     ></span>
+    <modal :show="showModal" @close="showModal = false">
+      <template #header>
+        <h3>Warning!</h3>
+      </template>
+      <template #body> 할 일을 입력하세요. </template>
+    </modal>
   </div>
 </template>
 
 <script>
+import Modal from "./common/Modal.vue";
+
 export default {
   data() {
     return {
       newTodoItem: "",
+      showModal: false,
     };
   },
   methods: {
@@ -25,11 +34,16 @@ export default {
         var value = this.newTodoItem && this.newTodoItem.trim();
         this.$emit("addTodo", value);
         this.clearInput();
+      } else {
+        this.showModal = true;
       }
     },
     clearInput() {
       this.newTodoItem = "";
     },
+  },
+  components: {
+    Modal: Modal,
   },
 };
 </script>
