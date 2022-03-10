@@ -1,6 +1,6 @@
 <template>
   <section>
-    <ul>
+    <ul v-if="propsdata.length > 0">
       <li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem">
         <i class="checkBtn fa fa-check" aria-hidden="true"></i>
         {{ todoItem }}
@@ -13,6 +13,9 @@
         </span>
       </li>
     </ul>
+    <div v-else>
+      <i class="emptyBox fas fa-calendar-check fa-xl" aria-hidden="true"></i>
+    </div>
   </section>
 </template>
 
@@ -49,5 +52,11 @@ li {
 .removeBtn {
   margin-left: auto;
   margin-right: 15px;
+}
+.emptyBox {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 20rem;
+  color: #d1dffa;
 }
 </style>
