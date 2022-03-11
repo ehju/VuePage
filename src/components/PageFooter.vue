@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer mt-auto py-3 bg-light">
+  <footer class="footer py-3 bg-light">
     <div class="container clearAllContainter">
       <span class="text-muted clearAllBtn" @click="clearAllTodo"
         >Clear Everything</span

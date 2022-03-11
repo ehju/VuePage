@@ -2,7 +2,7 @@
   <PageHeader />
   <TodoInput v-on:addTodo="addTodo" />
   <TodoList v-bind:propsdata="todoItems" @removeTodo="removeTodo" />
-  <PageFooter v-on:clearAllTodo="removeAll" />
+  <PageFooter v-if="todoItems.length > 0" v-on:clearAllTodo="removeAll" />
 </template>
 
 <script>
