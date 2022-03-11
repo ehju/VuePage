@@ -1,9 +1,17 @@
 <template>
   <section>
     <ul v-if="propsdata.length > 0">
-      <li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem">
-        <i class="checkBtn fa fa-check" aria-hidden="true"></i>
-        {{ todoItem }}
+      <li
+        v-for="(todoItem, index) in propsdata"
+        v-bind:key="todoItem.item"
+        :class="{ completed: todoItem.completed }"
+      >
+        <i
+          class="checkBtn fa fa-check"
+          aria-hidden="true"
+          @click="changeTodoState(todoItem, index)"
+        ></i>
+        {{ todoItem.item }}
         <span
           class="removeBtn"
           type="button"
@@ -25,6 +33,9 @@ export default {
   methods: {
     removeTodo(todoItem, index) {
       this.$emit("removeTodo", todoItem, index);
+    },
+    changeTodoState(todoItem, index) {
+      this.$emit("changeTodoState", todoItem, index);
     },
   },
 };
@@ -58,5 +69,9 @@ li {
   margin-top: 5rem;
   font-size: 20rem;
   color: #d1dffa;
+}
+.completed {
+  text-decoration-line: line-through;
+  color: gray;
 }
 </style>

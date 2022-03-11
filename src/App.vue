@@ -1,7 +1,11 @@
 <template>
   <PageHeader />
   <TodoInput v-on:addTodo="addTodo" />
-  <TodoList v-bind:propsdata="todoItems" @removeTodo="removeTodo" />
+  <TodoList
+    v-bind:propsdata="todoItems"
+    @removeTodo="removeTodo"
+    @changeTodoState="changeTodoState"
+  />
   <PageFooter v-if="todoItems.length > 0" v-on:clearAllTodo="removeAll" />
 </template>
 
@@ -22,13 +26,17 @@ export default {
   methods: {
     //TodoInput 에서 addTodo 이벤트 발생했을 때 실행
     addTodo(todoItem) {
-      localStorage.setItem(todoItem, todoItem);
-      this.todoItems.push(todoItem);
+      let obj = { item: todoItem, completed: false };
+      localStorage.setItem(obj.item, JSON.stringify(obj));
+      this.todoItems.push(obj);
     },
     removeTodo(todoItem, index) {
       localStorage.removeItem(todoItem);
       this.todoItems.splice(index, 1);
-      console.log("hi");
+    },
+    changeTodoState(todoItem) {
+      todoItem.completed = !todoItem.completed;
+      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
     removeAll() {
       localStorage.clear();
@@ -39,7 +47,8 @@ export default {
     if (localStorage.length > 0) {
       for (var i = 0; i < localStorage.length; i++) {
         if (localStorage.key(i) != "loglevel:webpack-dev-server") {
-          this.todoItems.push(localStorage.key(i));
+          let todoObj = JSON.parse(localStorage.getItem(localStorage.key(i)));
+          this.todoItems.push(todoObj);
         }
       }
     }
