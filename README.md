@@ -7,3 +7,6 @@
 
 ### Project Link
 https://todaytodo123.netlify.app/
+
+### DEMO
+![Screen_Recording_20220519-191309_Samsung-Internet](https://user-images.githubusercontent.com/13077196/169272472-92db03b3-a3d4-424d-ad4e-0b60acfd6610.gif)
